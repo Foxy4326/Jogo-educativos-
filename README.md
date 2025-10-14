@@ -156,20 +156,6 @@
             margin-bottom: 15px;
         }
 
-        .demo-accounts {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f7fafc;
-            border-radius: 15px;
-        }
-
-        .demo-title {
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #4a5568;
-            text-align: center;
-        }
-
         .demo-btn {
             width: 100%;
             padding: 10px;
@@ -279,6 +265,35 @@
             display: none;
         }
 
+        /* Sistema de Planos */
+        .plan-badge {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan-badge.basic {
+            background: linear-gradient(135deg, #718096, #4a5568);
+            color: white;
+        }
+
+        .plan-badge.premium {
+            background: linear-gradient(135deg, #9f7aea, #805ad5);
+            color: white;
+        }
+
+        .plan-badge.ultra {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #333;
+        }
+
         .shop-btn {
             position: fixed;
             bottom: 20px;
@@ -298,6 +313,28 @@
         }
 
         .shop-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .plans-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: linear-gradient(135deg, #9f7aea, #805ad5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(159, 122, 234, 0.3);
+            z-index: 1000;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .plans-btn:hover {
             transform: scale(1.05);
         }
 
@@ -381,6 +418,193 @@
             padding: 8px 15px;
             border-radius: 15px;
             font-weight: bold;
+        }
+
+        /* Modal de Planos */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 3px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card.basic {
+            border-color: #718096;
+        }
+
+        .plan-card.premium {
+            border-color: #9f7aea;
+            transform: scale(1.05);
+        }
+
+        .plan-card.ultra {
+            border-color: #ffd700;
+            background: linear-gradient(135deg, #fff9e6, #ffffff);
+        }
+
+        .plan-card.current {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            border-color: #48bb78;
+        }
+
+        .plan-popular {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(15deg);
+        }
+
+        .plan-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .plan-card.current .plan-name {
+            color: white;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+
+        .plan-card.current .plan-price {
+            color: white;
+        }
+
+        .plan-period {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .plan-card.current .plan-period {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+
+        .plan-card.current .plan-features li {
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-btn.basic {
+            background: linear-gradient(135deg, #718096, #4a5568);
+            color: white;
+        }
+
+        .plan-btn.premium {
+            background: linear-gradient(135deg, #9f7aea, #805ad5);
+            color: white;
+        }
+
+        .plan-btn.ultra {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #333;
+        }
+
+        .plan-btn.current {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: default;
+        }
+
+        .plan-btn:hover:not(.current) {
+            transform: scale(1.05);
+        }
+
+        .plan-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Benefícios dos Planos */
+        .plan-benefits {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .benefit-text {
+            flex: 1;
+            color: #4a5568;
         }
 
         /* Recompensas */
@@ -652,105 +876,6 @@
             background: linear-gradient(135deg, #e53e3e, #c53030);
         }
 
-        /* Estilos específicos dos novos jogos */
-        .memory-card {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: white;
-            font-weight: bold;
-        }
-
-        .memory-card.flipped {
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            transform: rotateY(180deg);
-        }
-
-        .memory-card.matched {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #333;
-        }
-
-        .memory-card:hover {
-            transform: scale(1.05);
-        }
-
-        .wordsearch-cell {
-            width: 25px;
-            height: 25px;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: white;
-        }
-
-        .wordsearch-cell:hover {
-            background: #f7fafc;
-        }
-
-        .wordsearch-cell.selected {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            color: white;
-        }
-
-        .wordsearch-cell.found {
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            color: white;
-        }
-
-        .word-item {
-            padding: 5px 10px;
-            margin: 2px 0;
-            border-radius: 8px;
-            background: white;
-            border: 1px solid #e2e8f0;
-            font-size: 0.9rem;
-        }
-
-        .word-item.found {
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            color: white;
-            text-decoration: line-through;
-        }
-
-        .puzzle-piece {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid #e2e8f0;
-        }
-
-        .puzzle-piece:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
-        }
-
-        .puzzle-piece.empty {
-            background: #f7fafc;
-            border: 2px dashed #cbd5e0;
-            color: transparent;
-        }
-
         /* Responsividade */
         @media (max-width: 768px) {
             h1 {
@@ -766,22 +891,12 @@
                 margin: 10px;
             }
 
-            .memory-card {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+            .plans-grid {
+                grid-template-columns: 1fr;
             }
 
-            .wordsearch-cell {
-                width: 20px;
-                height: 20px;
-                font-size: 0.8rem;
-            }
-
-            .puzzle-piece {
-                width: 70px;
-                height: 70px;
-                font-size: 1.5rem;
+            .plan-card.premium {
+                transform: none;
             }
         }
     </style>
@@ -792,9 +907,19 @@
         💰 <span id="user-coins">0</span> Moedas
     </div>
 
+    <!-- Badge do Plano -->
+    <div id="plan-badge" class="plan-badge basic">
+        <span id="plan-name">📦 Plano Básico</span>
+    </div>
+
     <!-- Botão da Loja -->
     <button id="shop-btn" class="shop-btn" onclick="abrirLoja()">
         🛒 Loja
+    </button>
+
+    <!-- Botão dos Planos -->
+    <button id="plans-btn" class="plans-btn" onclick="abrirPlanos()">
+        ⭐ Planos
     </button>
 
     <!-- Sistema de Login -->
@@ -871,7 +996,7 @@
     <div class="container">
         <header>
             <h1>🎮 Jogos Educativos</h1>
-            <p class="subtitle">Plataforma educativa interativa completa!</p>
+            <p class="subtitle">Plataforma educativa interativa completa com planos Básico, Premium e Ultra!</p>
             <div style="font-size: 2.5rem; margin-top: 20px;">🌟📚🎯🧠✨🚀🏆</div>
             <div class="version-badge">VERSÃO COMPLETA - 100% FUNCIONAL!</div>
         </header>
@@ -1027,302 +1152,6 @@
         </div>
     </div>
 
-    <!-- Modal do Quiz de Português -->
-    <div id="portuguese-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">📚 Quiz de Português</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="portuguese-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Pergunta: <span id="portuguese-current">0</span>/5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Acertos: <span id="portuguese-correct">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Precisão: <span id="portuguese-accuracy">0</span>%</div>
-                    </div>
-                </div>
-
-                <div class="question-area" id="portuguese-question">
-                    Clique em "Iniciar Quiz" para começar!
-                </div>
-
-                <div class="options-grid" id="portuguese-options" style="display: none;">
-                </div>
-
-                <button onclick="iniciarQuizPortugues()" id="portuguese-start-btn" class="control-btn" style="width: 100%;">
-                    🚀 Iniciar Quiz
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Quiz de Geografia -->
-    <div id="geography-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🌍 Quiz de Geografia</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="geography-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Pergunta: <span id="geography-current">0</span>/5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Acertos: <span id="geography-correct">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Precisão: <span id="geography-accuracy">0</span>%</div>
-                    </div>
-                </div>
-
-                <div class="question-area" id="geography-question">
-                    Clique em "Iniciar Quiz" para começar!
-                </div>
-
-                <div class="options-grid" id="geography-options" style="display: none;">
-                </div>
-
-                <button onclick="iniciarQuizGeografia()" id="geography-start-btn" class="control-btn" style="width: 100%;">
-                    🚀 Iniciar Quiz
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Quiz de História -->
-    <div id="history-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🏛️ Quiz de História</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="history-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Pergunta: <span id="history-current">0</span>/5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Acertos: <span id="history-correct">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Precisão: <span id="history-accuracy">0</span>%</div>
-                    </div>
-                </div>
-
-                <div class="question-area" id="history-question">
-                    Clique em "Iniciar Quiz" para começar!
-                </div>
-
-                <div class="options-grid" id="history-options" style="display: none;">
-                </div>
-
-                <button onclick="iniciarQuizHistoria()" id="history-start-btn" class="control-btn" style="width: 100%;">
-                    🚀 Iniciar Quiz
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Quiz de Ciências -->
-    <div id="science-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🔬 Quiz de Ciências</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="science-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Pergunta: <span id="science-current">0</span>/5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Acertos: <span id="science-correct">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Precisão: <span id="science-accuracy">0</span>%</div>
-                    </div>
-                </div>
-
-                <div class="question-area" id="science-question">
-                    Clique em "Iniciar Quiz" para começar!
-                </div>
-
-                <div class="options-grid" id="science-options" style="display: none;">
-                </div>
-
-                <button onclick="iniciarQuizCiencias()" id="science-start-btn" class="control-btn" style="width: 100%;">
-                    🚀 Iniciar Quiz
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Jogo da Memória -->
-    <div id="memory-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🧠 Jogo da Memória</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="memory-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Pares: <span id="memory-pairs">0</span>/8</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Tentativas: <span id="memory-attempts">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Tempo: <span id="memory-timer">0</span>s</div>
-                    </div>
-                </div>
-
-                <div id="memory-board" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; max-width: 400px; margin: 20px auto;">
-                    <!-- Cartas serão geradas aqui -->
-                </div>
-
-                <button onclick="iniciarJogoMemoria()" id="memory-start-btn" class="control-btn" style="width: 100%;">
-                    🚀 Iniciar Jogo
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Caça Palavras -->
-    <div id="wordsearch-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🔍 Caça Palavras</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="wordsearch-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Palavras: <span id="wordsearch-found">0</span>/5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Tempo: <span id="wordsearch-timer">120</span>s</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Dicas: <span id="wordsearch-hints">3</span></div>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 20px; align-items: flex-start;">
-                    <div id="wordsearch-grid" style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; font-family: monospace; font-size: 14px;">
-                        <!-- Grid será gerado aqui -->
-                    </div>
-                    
-                    <div style="background: #f7fafc; padding: 15px; border-radius: 10px; min-width: 150px;">
-                        <h4 style="margin-bottom: 10px; color: #4a5568;">Palavras:</h4>
-                        <div id="wordsearch-words">
-                            <!-- Lista de palavras -->
-                        </div>
-                        <button onclick="usarDica()" id="wordsearch-hint-btn" class="control-btn secondary" style="width: 100%; margin-top: 10px; font-size: 0.9rem;">
-                            💡 Usar Dica
-                        </button>
-                    </div>
-                </div>
-
-                <button onclick="iniciarCacaPalavras()" id="wordsearch-start-btn" class="control-btn" style="width: 100%; margin-top: 20px;">
-                    🚀 Iniciar Jogo
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Quiz de Inglês -->
-    <div id="english-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🇺🇸 Quiz de Inglês</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="english-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Pergunta: <span id="english-current">0</span>/5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Acertos: <span id="english-correct">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Precisão: <span id="english-accuracy">0</span>%</div>
-                    </div>
-                </div>
-
-                <div class="question-area" id="english-question">
-                    Clique em "Iniciar Quiz" para começar!
-                </div>
-
-                <div class="options-grid" id="english-options" style="display: none;">
-                </div>
-
-                <button onclick="iniciarQuizIngles()" id="english-start-btn" class="control-btn" style="width: 100%;">
-                    🚀 Iniciar Quiz
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal do Quebra-Cabeça Numérico -->
-    <div id="puzzle-modal" class="game-modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="fecharModal()">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">🧩 Quebra-Cabeça Numérico</h2>
-            
-            <div class="game-interface">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <div>Pontos: <span id="puzzle-points">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Movimentos: <span id="puzzle-moves">0</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Tempo: <span id="puzzle-timer">0</span>s</div>
-                    </div>
-                    <div class="stat-item">
-                        <div>Melhor: <span id="puzzle-best-moves">∞</span></div>
-                    </div>
-                </div>
-
-                <div id="puzzle-board" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; max-width: 300px; margin: 20px auto;">
-                    <!-- Peças do quebra-cabeça -->
-                </div>
-
-                <div style="display: flex; gap: 10px; justify-content: center;">
-                    <button onclick="iniciarQuebraCabeca()" id="puzzle-start-btn" class="control-btn">
-                        🚀 Novo Jogo
-                    </button>
-                    <button onclick="embaralharPuzzle()" id="puzzle-shuffle-btn" class="control-btn secondary" style="display: none;">
-                        🔀 Embaralhar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Modal da Loja -->
     <div id="shop-modal" class="game-modal">
         <div class="modal-content" style="max-width: 900px;">
@@ -1337,6 +1166,62 @@
             
             <div class="shop-grid" id="shop-items">
                 <!-- Itens da loja serão carregados aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal dos Planos -->
+    <div id="plans-modal" class="game-modal">
+        <div class="modal-content" style="max-width: 1000px;">
+            <button class="close-button" onclick="fecharPlanos()">&times;</button>
+            <h2 style="text-align: center; margin-bottom: 30px; color: #4a5568;">⭐ Planos de Assinatura</h2>
+            
+            <div class="plans-grid" id="plans-container">
+                <!-- Planos serão carregados aqui -->
+            </div>
+
+            <div class="plan-benefits">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #4a5568;">🎁 Compare os Benefícios</h3>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎮</div>
+                    <div class="benefit-text">
+                        <strong>Acesso aos Jogos:</strong><br>
+                        <span style="color: #718096;">Básico: 5 jogos</span> | 
+                        <span style="color: #9f7aea;">Premium: 9 jogos</span> | 
+                        <span style="color: #ff8c00;">Ultra: Todos os jogos + Exclusivos</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">
+                        <strong>Moedas por Jogo:</strong><br>
+                        <span style="color: #718096;">Básico: 1x</span> | 
+                        <span style="color: #9f7aea;">Premium: 2x</span> | 
+                        <span style="color: #ff8c00;">Ultra: 3x</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛒</div>
+                    <div class="benefit-text">
+                        <strong>Desconto na Loja:</strong><br>
+                        <span style="color: #718096;">Básico: 0%</span> | 
+                        <span style="color: #9f7aea;">Premium: 20%</span> | 
+                        <span style="color: #ff8c00;">Ultra: 50%</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-text">
+                        <strong>Recursos Especiais:</strong><br>
+                        <span style="color: #718096;">Básico: Básicos</span> | 
+                        <span style="color: #9f7aea;">Premium: Estatísticas + Temas</span> | 
+                        <span style="color: #ff8c00;">Ultra: Tudo + Suporte VIP</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1409,6 +1294,7 @@
         let sistemaPontuacao = null;
         let jogoAtual = null;
         let sistemaMonetario = null;
+        let sistemaPlanos = null;
 
         // Inicializar contas especiais
         function inicializarContasEspeciais() {
@@ -1424,6 +1310,7 @@
                     isOwner: true,
                     verificado: true,
                     nivel: 'DONO',
+                    plano: 'ultra',
                     permissoes: ['all']
                 };
             } else {
@@ -1432,6 +1319,7 @@
                 usuariosExistentes['vitor202'].isOwner = true;
                 usuariosExistentes['vitor202'].verificado = true;
                 usuariosExistentes['vitor202'].nivel = 'DONO';
+                usuariosExistentes['vitor202'].plano = 'ultra';
                 usuariosExistentes['vitor202'].permissoes = ['all'];
             }
             
@@ -1445,6 +1333,7 @@
                     isProfessora: true,
                     verificado: true,
                     nivel: 'PROFESSORA',
+                    plano: 'premium',
                     permissoes: ['admin', 'educacao']
                 };
             } else {
@@ -1453,6 +1342,7 @@
                 usuariosExistentes['bruna'].isProfessora = true;
                 usuariosExistentes['bruna'].verificado = true;
                 usuariosExistentes['bruna'].nivel = 'PROFESSORA';
+                usuariosExistentes['bruna'].plano = 'premium';
                 usuariosExistentes['bruna'].permissoes = ['admin', 'educacao'];
             }
             
@@ -1461,6 +1351,157 @@
 
         // Executar na inicialização
         inicializarContasEspeciais();
+
+        // Sistema de Planos
+        class SistemaPlanos {
+            constructor() {
+                this.planoAtual = this.obterPlanoUsuario();
+                this.atualizarBadgePlano();
+            }
+
+            obterPlanoUsuario() {
+                const usuarios = JSON.parse(localStorage.getItem('usuarios') || '{}');
+                const dadosUsuario = usuarios[usuarioLogado];
+                return dadosUsuario?.plano || 'basic';
+            }
+
+            obterPlanos() {
+                return [
+                    {
+                        id: 'basic',
+                        nome: 'Básico',
+                        icone: '📦',
+                        preco: 'Grátis',
+                        periodo: 'Para sempre',
+                        recursos: [
+                            '✅ 5 jogos educativos',
+                            '✅ Sistema de pontuação',
+                            '✅ Moedas básicas (1x)',
+                            '✅ Salvamento de progresso',
+                            '❌ Sem desconto na loja',
+                            '❌ Recursos limitados'
+                        ],
+                        multiplicadorMoedas: 1,
+                        descontoLoja: 0,
+                        jogosLiberados: 5
+                    },
+                    {
+                        id: 'premium',
+                        nome: 'Premium',
+                        icone: '⭐',
+                        preco: 'R$ 9,90',
+                        periodo: 'por mês',
+                        popular: true,
+                        recursos: [
+                            '✅ 9 jogos educativos',
+                            '✅ Moedas dobradas (2x)',
+                            '✅ 20% desconto na loja',
+                            '✅ Estatísticas avançadas',
+                            '✅ Temas personalizados',
+                            '✅ Suporte prioritário'
+                        ],
+                        multiplicadorMoedas: 2,
+                        descontoLoja: 20,
+                        jogosLiberados: 9
+                    },
+                    {
+                        id: 'ultra',
+                        nome: 'Ultra',
+                        icone: '👑',
+                        preco: 'R$ 19,90',
+                        periodo: 'por mês',
+                        recursos: [
+                            '✅ TODOS os jogos + exclusivos',
+                            '✅ Moedas triplicadas (3x)',
+                            '✅ 50% desconto na loja',
+                            '✅ Acesso antecipado',
+                            '✅ Avatar dourado exclusivo',
+                            '✅ Suporte VIP 24/7'
+                        ],
+                        multiplicadorMoedas: 3,
+                        descontoLoja: 50,
+                        jogosLiberados: 999
+                    }
+                ];
+            }
+
+            alterarPlano(novoPlano) {
+                const usuarios = JSON.parse(localStorage.getItem('usuarios') || '{}');
+                if (usuarios[usuarioLogado]) {
+                    usuarios[usuarioLogado].plano = novoPlano;
+                    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                    this.planoAtual = novoPlano;
+                    this.atualizarBadgePlano();
+                    
+                    // Reinicializar sistema monetário com novos multiplicadores
+                    if (sistemaMonetario) {
+                        sistemaMonetario = new SistemaMonetario();
+                    }
+                    
+                    criarNotificacao(`🎉 Plano alterado para ${this.obterPlanos().find(p => p.id === novoPlano).nome}!`, 'success');
+                    this.atualizarModalPlanos();
+                }
+            }
+
+            atualizarBadgePlano() {
+                const badge = document.getElementById('plan-badge');
+                const planName = document.getElementById('plan-name');
+                const plano = this.obterPlanos().find(p => p.id === this.planoAtual);
+                
+                if (badge && planName && plano) {
+                    badge.className = `plan-badge ${this.planoAtual}`;
+                    planName.textContent = `${plano.icone} Plano ${plano.nome}`;
+                    badge.style.display = 'block';
+                }
+            }
+
+            atualizarModalPlanos() {
+                const container = document.getElementById('plans-container');
+                if (!container) return;
+
+                const planos = this.obterPlanos();
+                let html = '';
+
+                planos.forEach(plano => {
+                    const isAtual = plano.id === this.planoAtual;
+                    
+                    html += `
+                        <div class="plan-card ${plano.id} ${isAtual ? 'current' : ''}">
+                            ${plano.popular ? '<div class="plan-popular">MAIS POPULAR</div>' : ''}
+                            <div class="plan-icon">${plano.icone}</div>
+                            <div class="plan-name">${plano.nome}</div>
+                            <div class="plan-price">${plano.preco}</div>
+                            <div class="plan-period">${plano.periodo}</div>
+                            <ul class="plan-features">
+                                ${plano.recursos.map(recurso => `<li>${recurso}</li>`).join('')}
+                            </ul>
+                            <button class="plan-btn ${plano.id} ${isAtual ? 'current' : ''}" 
+                                    onclick="sistemaPlanos.alterarPlano('${plano.id}')"
+                                    ${isAtual ? 'disabled' : ''}>
+                                ${isAtual ? '✅ Plano Atual' : `🚀 Escolher ${plano.nome}`}
+                            </button>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+            }
+
+            obterMultiplicadorMoedas() {
+                const plano = this.obterPlanos().find(p => p.id === this.planoAtual);
+                return plano?.multiplicadorMoedas || 1;
+            }
+
+            obterDescontoLoja() {
+                const plano = this.obterPlanos().find(p => p.id === this.planoAtual);
+                return plano?.descontoLoja || 0;
+            }
+
+            podeJogar(indiceJogo) {
+                const plano = this.obterPlanos().find(p => p.id === this.planoAtual);
+                return indiceJogo < (plano?.jogosLiberados || 5);
+            }
+        }
 
         // Sistema de Login
         function mostrarLogin() {
@@ -1531,7 +1572,8 @@
             usuariosExistentes[usuario] = {
                 senha: senha,
                 email: email,
-                dataCriacao: new Date().toISOString()
+                dataCriacao: new Date().toISOString(),
+                plano: 'basic'
             };
             localStorage.setItem('usuarios', JSON.stringify(usuariosExistentes));
 
@@ -1544,8 +1586,15 @@
             document.getElementById('user-section').style.display = 'block';
             fecharLogin();
             
-            // Inicializar sistema de pontuação
+            // Inicializar sistemas
             sistemaPontuacao = new SistemaPontuacao();
+            sistemaMonetario = new SistemaMonetario();
+            sistemaPlanos = new SistemaPlanos();
+            
+            // Mostrar elementos
+            document.getElementById('currency-display').style.display = 'block';
+            document.getElementById('shop-btn').style.display = 'block';
+            document.getElementById('plans-btn').style.display = 'block';
             
             setTimeout(() => {
                 criarNotificacao(`🎮 Bem-vindo à plataforma, ${usuario}!`, 'success');
@@ -1585,10 +1634,12 @@
                 // Inicializar sistemas
                 sistemaPontuacao = new SistemaPontuacao();
                 sistemaMonetario = new SistemaMonetario();
+                sistemaPlanos = new SistemaPlanos();
                 
-                // Mostrar elementos do sistema monetário
+                // Mostrar elementos do sistema
                 document.getElementById('currency-display').style.display = 'block';
                 document.getElementById('shop-btn').style.display = 'block';
+                document.getElementById('plans-btn').style.display = 'block';
                 
                 // Mensagem personalizada baseada no nível
                 let mensagem = `🎉 Bem-vindo de volta, ${usuario}!`;
@@ -1610,12 +1661,15 @@
             usuarioLogado = null;
             sistemaPontuacao = null;
             sistemaMonetario = null;
+            sistemaPlanos = null;
             document.getElementById('login-section').style.display = 'block';
             document.getElementById('user-section').style.display = 'none';
             document.getElementById('admin-panel-btn').style.display = 'none';
             document.getElementById('user-badges').innerHTML = '';
             document.getElementById('currency-display').style.display = 'none';
             document.getElementById('shop-btn').style.display = 'none';
+            document.getElementById('plans-btn').style.display = 'none';
+            document.getElementById('plan-badge').style.display = 'none';
             criarNotificacao('👋 Logout realizado com sucesso!', 'success');
         }
 
@@ -1641,6 +1695,24 @@
             }
             
             badgesContainer.innerHTML = badges;
+        }
+
+        // Funções dos Planos
+        function abrirPlanos() {
+            if (!usuarioLogado) {
+                criarNotificacao('❌ Faça login para ver os planos!', 'error');
+                mostrarLogin();
+                return;
+            }
+
+            document.getElementById('plans-modal').style.display = 'flex';
+            if (sistemaPlanos) {
+                sistemaPlanos.atualizarModalPlanos();
+            }
+        }
+
+        function fecharPlanos() {
+            document.getElementById('plans-modal').style.display = 'none';
         }
 
         // Funções do Painel de Administração
@@ -1687,12 +1759,18 @@
                 const user = usuarios[username];
                 const pontos = localStorage.getItem(`${username}-totalPoints`) || '0';
                 const jogos = localStorage.getItem(`${username}-gamesPlayed`) || '0';
+                const plano = user.plano || 'basic';
                 
                 let badges = '';
                 if (user.isOwner) badges += '<span style="background: #ffd700; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem; margin-right: 3px;">👑 DONO</span>';
                 if (user.isProfessora) badges += '<span style="background: #ff6b6b; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem; margin-right: 3px;">👩‍🏫 PROFESSORA</span>';
                 if (user.isAdmin) badges += '<span style="background: #9f7aea; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem; margin-right: 3px;">⚡ ADMIN</span>';
-                if (user.verificado) badges += '<span style="background: #48bb78; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem;">✅ VERIFICADO</span>';
+                if (user.verificado) badges += '<span style="background: #48bb78; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem; margin-right: 3px;">✅ VERIFICADO</span>';
+                
+                // Badge do plano
+                const planoBadge = plano === 'ultra' ? '👑 ULTRA' : plano === 'premium' ? '⭐ PREMIUM' : '📦 BÁSICO';
+                const planoColor = plano === 'ultra' ? '#ff8c00' : plano === 'premium' ? '#9f7aea' : '#718096';
+                badges += `<span style="background: ${planoColor}; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem;">${planoBadge}</span>`;
                 
                 html += `
                     <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #4facfe;">
@@ -1724,18 +1802,28 @@
                 localStorage.removeItem(`${username}-gamesPlayed`);
                 localStorage.removeItem(`${username}-achievements`);
                 localStorage.removeItem(`${username}-streak`);
+                localStorage.removeItem(`${username}-coins`);
+                localStorage.removeItem(`${username}-items`);
                 localStorage.removeItem(`${username}-math-best`);
                 localStorage.removeItem(`${username}-portuguese-best`);
                 localStorage.removeItem(`${username}-geography-best`);
                 localStorage.removeItem(`${username}-history-best`);
+                localStorage.removeItem(`${username}-science-best`);
+                localStorage.removeItem(`${username}-memory-best`);
+                localStorage.removeItem(`${username}-wordsearch-best`);
+                localStorage.removeItem(`${username}-english-best`);
+                localStorage.removeItem(`${username}-puzzle-best`);
             });
             
             criarNotificacao('🗑️ Dados de pontuação limpos com sucesso!', 'success');
             carregarDadosAdmin();
             
-            // Atualizar sistema de pontuação se o usuário atual estiver logado
+            // Atualizar sistemas se o usuário atual estiver logado
             if (sistemaPontuacao) {
                 sistemaPontuacao = new SistemaPontuacao();
+            }
+            if (sistemaMonetario) {
+                sistemaMonetario = new SistemaMonetario();
             }
         }
 
@@ -1753,10 +1841,17 @@
                     gamesPlayed: localStorage.getItem(`${username}-gamesPlayed`) || '0',
                     achievements: localStorage.getItem(`${username}-achievements`) || '0',
                     streak: localStorage.getItem(`${username}-streak`) || '0',
+                    coins: localStorage.getItem(`${username}-coins`) || '0',
+                    items: localStorage.getItem(`${username}-items`) || '[]',
                     mathBest: localStorage.getItem(`${username}-math-best`) || '0',
                     portugueseBest: localStorage.getItem(`${username}-portuguese-best`) || '0',
                     geographyBest: localStorage.getItem(`${username}-geography-best`) || '0',
-                    historyBest: localStorage.getItem(`${username}-history-best`) || '0'
+                    historyBest: localStorage.getItem(`${username}-history-best`) || '0',
+                    scienceBest: localStorage.getItem(`${username}-science-best`) || '0',
+                    memoryBest: localStorage.getItem(`${username}-memory-best`) || '0',
+                    wordsearchBest: localStorage.getItem(`${username}-wordsearch-best`) || '0',
+                    englishBest: localStorage.getItem(`${username}-english-best`) || '0',
+                    puzzleBest: localStorage.getItem(`${username}-puzzle-best`) || '0'
                 };
             });
             
@@ -1774,7 +1869,7 @@
         function gerarRelatorio() {
             const usuarios = JSON.parse(localStorage.getItem('usuarios') || '{}');
             let relatorio = '📊 RELATÓRIO DO SISTEMA - JOGOS EDUCATIVOS\n';
-            relatorio += '=' .repeat(50) + '\n\n';
+            relatorio += '='.repeat(50) + '\n\n';
             relatorio += `Data: ${new Date().toLocaleString('pt-BR')}\n`;
             relatorio += `Total de usuários: ${Object.keys(usuarios).length}\n\n`;
             
@@ -1785,10 +1880,13 @@
                 const user = usuarios[username];
                 const pontos = localStorage.getItem(`${username}-totalPoints`) || '0';
                 const jogos = localStorage.getItem(`${username}-gamesPlayed`) || '0';
+                const moedas = localStorage.getItem(`${username}-coins`) || '0';
+                const plano = user.plano || 'basic';
                 
                 relatorio += `👤 ${username}\n`;
                 relatorio += `   📧 Email: ${user.email}\n`;
-                relatorio += `   🎮 Jogos: ${jogos} | ⭐ Pontos: ${pontos}\n`;
+                relatorio += `   🎮 Jogos: ${jogos} | ⭐ Pontos: ${pontos} | 💰 Moedas: ${moedas}\n`;
+                relatorio += `   📦 Plano: ${plano.toUpperCase()}\n`;
                 relatorio += `   📅 Criado: ${new Date(user.dataCriacao).toLocaleDateString('pt-BR')}\n`;
                 if (user.isOwner) relatorio += `   👑 DONO DO SITE\n`;
                 if (user.isAdmin) relatorio += `   ⚡ ADMINISTRADOR\n`;
@@ -1822,18 +1920,27 @@
             }
 
             adicionarMoedas(quantidade, motivo = '') {
-                this.moedas += quantidade;
+                // Aplicar multiplicador do plano
+                const multiplicador = sistemaPlanos ? sistemaPlanos.obterMultiplicadorMoedas() : 1;
+                const moedasFinais = quantidade * multiplicador;
+                
+                this.moedas += moedasFinais;
                 this.salvar();
                 this.atualizarDisplay();
                 
                 if (motivo) {
-                    this.mostrarRecompensa(`+${quantidade} moedas por ${motivo}!`);
+                    const textoMultiplicador = multiplicador > 1 ? ` (${multiplicador}x)` : '';
+                    this.mostrarRecompensa(`+${moedasFinais} moedas por ${motivo}${textoMultiplicador}!`);
                 }
             }
 
             gastarMoedas(quantidade) {
-                if (this.moedas >= quantidade) {
-                    this.moedas -= quantidade;
+                // Aplicar desconto do plano
+                const desconto = sistemaPlanos ? sistemaPlanos.obterDescontoLoja() : 0;
+                const precoFinal = Math.round(quantidade * (1 - desconto / 100));
+                
+                if (this.moedas >= precoFinal) {
+                    this.moedas -= precoFinal;
                     this.salvar();
                     this.atualizarDisplay();
                     return true;
@@ -1850,10 +1957,16 @@
                     return false;
                 }
 
+                // Calcular preço com desconto
+                const desconto = sistemaPlanos ? sistemaPlanos.obterDescontoLoja() : 0;
+                const precoFinal = Math.round(item.preco * (1 - desconto / 100));
+
                 if (this.gastarMoedas(item.preco)) {
                     this.itensComprados.push(itemId);
                     localStorage.setItem(`${usuarioLogado}-items`, JSON.stringify(this.itensComprados));
-                    criarNotificacao(`🎉 ${item.nome} comprado com sucesso!`, 'success');
+                    
+                    const textoDesconto = desconto > 0 ? ` (${desconto}% desconto!)` : '';
+                    criarNotificacao(`🎉 ${item.nome} comprado por ${precoFinal} moedas${textoDesconto}!`, 'success');
                     this.atualizarLoja();
                     return true;
                 } else {
@@ -1929,11 +2042,13 @@
                 if (!container) return;
 
                 const itens = this.obterItensLoja();
+                const desconto = sistemaPlanos ? sistemaPlanos.obterDescontoLoja() : 0;
                 let html = '';
 
                 itens.forEach(item => {
                     const jaComprado = this.itensComprados.includes(item.id);
-                    const podeComprar = this.moedas >= item.preco && !jaComprado;
+                    const precoFinal = Math.round(item.preco * (1 - desconto / 100));
+                    const podeComprar = this.moedas >= precoFinal && !jaComprado;
 
                     html += `
                         <div class="shop-item ${jaComprado ? 'owned' : ''}">
@@ -1941,7 +2056,10 @@
                             <div class="shop-item-name">${item.nome}</div>
                             <div class="shop-item-description">${item.descricao}</div>
                             ${!jaComprado ? 
-                                `<div class="shop-item-price">💰 ${item.preco} moedas</div>
+                                `<div class="shop-item-price">
+                                    💰 ${precoFinal} moedas
+                                    ${desconto > 0 ? `<br><small style="text-decoration: line-through; opacity: 0.7;">${item.preco} moedas</small> <span style="color: #e53e3e; font-weight: bold;">-${desconto}%</span>` : ''}
+                                 </div>
                                  <button class="shop-buy-btn" ${!podeComprar ? 'disabled' : ''} 
                                          onclick="sistemaMonetario.comprarItem('${item.id}')">
                                      ${podeComprar ? '🛒 Comprar' : '❌ Sem moedas'}
@@ -2001,12 +2119,36 @@
                     sistemaMonetario.adicionarMoedas(moedasGanhas, jogo);
                 }
                 
-                if (this.pontos >= 100 && this.conquistas < 1) this.conquistas = 1;
-                if (this.pontos >= 500 && this.conquistas < 2) this.conquistas = 2;
-                if (this.sequencia >= 10 && this.conquistas < 3) this.conquistas = 3;
-
+                // Verificar conquistas
+                this.verificarConquistas();
+                
                 this.salvar();
                 this.atualizarDisplay();
+            }
+
+            verificarConquistas() {
+                let conquistasAntigas = this.conquistas;
+                
+                if (this.pontos >= 100 && this.conquistas < 1) {
+                    this.conquistas = 1;
+                    if (sistemaMonetario) sistemaMonetario.adicionarMoedas(25, 'Primeira Conquista');
+                }
+                if (this.pontos >= 500 && this.conquistas < 2) {
+                    this.conquistas = 2;
+                    if (sistemaMonetario) sistemaMonetario.adicionarMoedas(25, 'Meio Milhar');
+                }
+                if (this.sequencia >= 10 && this.conquistas < 3) {
+                    this.conquistas = 3;
+                    if (sistemaMonetario) sistemaMonetario.adicionarMoedas(25, 'Sequência de Ouro');
+                }
+                if (this.jogosJogados >= 50 && this.conquistas < 4) {
+                    this.conquistas = 4;
+                    if (sistemaMonetario) sistemaMonetario.adicionarMoedas(25, 'Jogador Dedicado');
+                }
+                
+                if (this.conquistas > conquistasAntigas) {
+                    criarNotificacao(`🏆 Nova conquista desbloqueada! (+25 moedas)`, 'success');
+                }
             }
 
             salvar() {
@@ -2047,8 +2189,8 @@
             }
 
             gerarPergunta() {
-                const num1 = Math.floor(Math.random() * 20) + 1;
-                const num2 = Math.floor(Math.random() * 20) + 1;
+                let num1 = Math.floor(Math.random() * 20) + 1;
+                let num2 = Math.floor(Math.random() * 20) + 1;
                 const operacao = Math.random() > 0.5 ? '+' : '-';
                 
                 if (operacao === '-' && num1 < num2) {
@@ -2125,14 +2267,17 @@
                     </div>
                 `;
                 
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Matemática');
-                }
-                
+                // Salvar melhor pontuação
                 const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-math-best`) || '0');
                 if (this.pontos > melhorAnterior) {
                     localStorage.setItem(`${usuarioLogado}-math-best`, this.pontos.toString());
                     document.getElementById('math-best').textContent = this.pontos;
+                    criarNotificacao('🏆 Nova melhor pontuação!', 'success');
+                }
+                
+                // Adicionar pontos ao sistema
+                if (sistemaPontuacao) {
+                    sistemaPontuacao.adicionarPontos(this.pontos, 'Desafio Matemático');
                 }
             }
 
@@ -2143,1188 +2288,53 @@
             }
         }
 
-        // Quiz de Português
-        class QuizPortugues {
-            constructor() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.totalPerguntas = 5;
-                this.perguntas = [
-                    {
-                        pergunta: "Qual é o plural de 'animal'?",
-                        opcoes: ["animais", "animals", "animales", "animaes"],
-                        correta: 0
-                    },
-                    {
-                        pergunta: "Complete: 'Eu _____ na escola ontem.'",
-                        opcoes: ["foi", "fui", "fomos", "foram"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Qual palavra está escrita corretamente?",
-                        opcoes: ["excessão", "exceção", "exeção", "excesão"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "O que é um substantivo?",
-                        opcoes: ["Palavra que indica ação", "Palavra que nomeia seres", "Palavra que qualifica", "Palavra que liga"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Qual é o feminino de 'galo'?",
-                        opcoes: ["gala", "galinha", "galia", "galona"],
-                        correta: 1
-                    }
-                ];
-                this.ativo = false;
+        // Funções dos Jogos
+        function abrirJogo(tipoJogo) {
+            if (!usuarioLogado) {
+                criarNotificacao('❌ Faça login para jogar!', 'error');
+                mostrarLogin();
+                return;
             }
 
-            iniciar() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.ativo = true;
-                
-                this.perguntas = this.perguntas.sort(() => Math.random() - 0.5);
-                
-                document.getElementById('portuguese-start-btn').style.display = 'none';
-                document.getElementById('portuguese-options').style.display = 'grid';
-                
-                this.mostrarPergunta();
-                this.atualizarDisplay();
+            // Verificar se o plano permite jogar este jogo
+            const jogos = ['math', 'portuguese', 'geography', 'history', 'science', 'memory', 'wordsearch', 'english', 'puzzle'];
+            const indiceJogo = jogos.indexOf(tipoJogo);
+            
+            if (sistemaPlanos && !sistemaPlanos.podeJogar(indiceJogo)) {
+                criarNotificacao('❌ Este jogo requer um plano superior! Veja os planos disponíveis.', 'error');
+                abrirPlanos();
+                return;
             }
 
-            mostrarPergunta() {
-                if (this.perguntaAtual >= this.perguntas.length) {
-                    this.finalizarJogo();
-                    return;
-                }
-
-                const pergunta = this.perguntas[this.perguntaAtual];
-                document.getElementById('portuguese-question').textContent = pergunta.pergunta;
-                
-                const optionsContainer = document.getElementById('portuguese-options');
-                optionsContainer.innerHTML = '';
-                
-                pergunta.opcoes.forEach((opcao, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'option-btn';
-                    button.textContent = opcao;
-                    button.onclick = () => this.verificarResposta(index);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            verificarResposta(opcaoSelecionada) {
-                if (!this.ativo) return;
-                
-                const pergunta = this.perguntas[this.perguntaAtual];
-                const buttons = document.querySelectorAll('#portuguese-options .option-btn');
-                
-                buttons.forEach((btn, index) => {
-                    if (index === pergunta.correta) {
-                        btn.classList.add('correct');
-                    } else if (index === opcaoSelecionada && index !== pergunta.correta) {
-                        btn.classList.add('incorrect');
-                    }
-                    btn.disabled = true;
-                });
-                
-                if (opcaoSelecionada === pergunta.correta) {
-                    this.acertos++;
-                    this.pontos += 20;
-                    criarNotificacao('✅ Correto!', 'success');
-                } else {
-                    criarNotificacao('❌ Incorreto!', 'error');
-                }
-                
-                setTimeout(() => {
-                    this.perguntaAtual++;
-                    this.mostrarPergunta();
-                    this.atualizarDisplay();
-                }, 2000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                const precisao = Math.round((this.acertos / this.perguntas.length) * 100);
-                
-                document.getElementById('portuguese-start-btn').style.display = 'block';
-                document.getElementById('portuguese-options').style.display = 'none';
-                
-                document.getElementById('portuguese-question').innerHTML = `
-                    <div style="text-align: center;">
-                        <h3>🎉 Quiz Finalizado!</h3>
-                        <p>Pontos: ${this.pontos}</p>
-                        <p>Acertos: ${this.acertos}/${this.perguntas.length}</p>
-                        <p>Precisão: ${precisao}%</p>
-                    </div>
-                `;
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Português');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-portuguese-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-portuguese-best`, this.pontos.toString());
-                    document.getElementById('portuguese-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('portuguese-points').textContent = this.pontos;
-                document.getElementById('portuguese-current').textContent = this.perguntaAtual + 1;
-                document.getElementById('portuguese-correct').textContent = this.acertos;
-                const precisao = this.perguntaAtual > 0 ? Math.round((this.acertos / this.perguntaAtual) * 100) : 0;
-                document.getElementById('portuguese-accuracy').textContent = precisao;
+            document.getElementById(`${tipoJogo}-modal`).style.display = 'flex';
+            
+            if (tipoJogo === 'math') {
+                jogoAtual = new DesafioMatematico();
             }
         }
 
-        // Quiz de Geografia
-        class QuizGeografia {
-            constructor() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.totalPerguntas = 5;
-                this.perguntas = [
-                    {
-                        pergunta: "Qual é a capital do Brasil?",
-                        opcoes: ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"],
-                        correta: 2
-                    },
-                    {
-                        pergunta: "Qual é o maior país do mundo?",
-                        opcoes: ["China", "Estados Unidos", "Canadá", "Rússia"],
-                        correta: 3
-                    },
-                    {
-                        pergunta: "Em que continente fica o Egito?",
-                        opcoes: ["Ásia", "África", "Europa", "América"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Qual é o rio mais longo do mundo?",
-                        opcoes: ["Amazonas", "Nilo", "Mississippi", "Yangtzé"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Quantos continentes existem?",
-                        opcoes: ["5", "6", "7", "8"],
-                        correta: 2
-                    }
-                ];
-                this.ativo = false;
+        function fecharModal() {
+            const modals = document.querySelectorAll('.game-modal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+            
+            // Limpar jogo atual
+            if (jogoAtual && jogoAtual.timer) {
+                clearInterval(jogoAtual.timer);
             }
+            jogoAtual = null;
+        }
 
-            iniciar() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.ativo = true;
-                
-                this.perguntas = this.perguntas.sort(() => Math.random() - 0.5);
-                
-                document.getElementById('geography-start-btn').style.display = 'none';
-                document.getElementById('geography-options').style.display = 'grid';
-                
-                this.mostrarPergunta();
-                this.atualizarDisplay();
-            }
-
-            mostrarPergunta() {
-                if (this.perguntaAtual >= this.perguntas.length) {
-                    this.finalizarJogo();
-                    return;
-                }
-
-                const pergunta = this.perguntas[this.perguntaAtual];
-                document.getElementById('geography-question').textContent = pergunta.pergunta;
-                
-                const optionsContainer = document.getElementById('geography-options');
-                optionsContainer.innerHTML = '';
-                
-                pergunta.opcoes.forEach((opcao, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'option-btn';
-                    button.textContent = opcao;
-                    button.onclick = () => this.verificarResposta(index);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            verificarResposta(opcaoSelecionada) {
-                if (!this.ativo) return;
-                
-                const pergunta = this.perguntas[this.perguntaAtual];
-                const buttons = document.querySelectorAll('#geography-options .option-btn');
-                
-                buttons.forEach((btn, index) => {
-                    if (index === pergunta.correta) {
-                        btn.classList.add('correct');
-                    } else if (index === opcaoSelecionada && index !== pergunta.correta) {
-                        btn.classList.add('incorrect');
-                    }
-                    btn.disabled = true;
-                });
-                
-                if (opcaoSelecionada === pergunta.correta) {
-                    this.acertos++;
-                    this.pontos += 20;
-                    criarNotificacao('✅ Correto!', 'success');
-                } else {
-                    criarNotificacao('❌ Incorreto!', 'error');
-                }
-                
-                setTimeout(() => {
-                    this.perguntaAtual++;
-                    this.mostrarPergunta();
-                    this.atualizarDisplay();
-                }, 2000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                const precisao = Math.round((this.acertos / this.perguntas.length) * 100);
-                
-                document.getElementById('geography-start-btn').style.display = 'block';
-                document.getElementById('geography-options').style.display = 'none';
-                
-                document.getElementById('geography-question').innerHTML = `
-                    <div style="text-align: center;">
-                        <h3>🎉 Quiz Finalizado!</h3>
-                        <p>Pontos: ${this.pontos}</p>
-                        <p>Acertos: ${this.acertos}/${this.perguntas.length}</p>
-                        <p>Precisão: ${precisao}%</p>
-                    </div>
-                `;
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Geografia');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-geography-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-geography-best`, this.pontos.toString());
-                    document.getElementById('geography-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('geography-points').textContent = this.pontos;
-                document.getElementById('geography-current').textContent = this.perguntaAtual + 1;
-                document.getElementById('geography-correct').textContent = this.acertos;
-                const precisao = this.perguntaAtual > 0 ? Math.round((this.acertos / this.perguntaAtual) * 100) : 0;
-                document.getElementById('geography-accuracy').textContent = precisao;
+        function iniciarJogoMatematico() {
+            if (jogoAtual) {
+                jogoAtual.iniciar();
             }
         }
 
-        // Quiz de História
-        class QuizHistoria {
-            constructor() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.totalPerguntas = 5;
-                this.perguntas = [
-                    {
-                        pergunta: "Em que ano o Brasil foi descoberto?",
-                        opcoes: ["1498", "1500", "1502", "1504"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Quem foi o primeiro presidente do Brasil?",
-                        opcoes: ["Getúlio Vargas", "Deodoro da Fonseca", "Juscelino Kubitschek", "Tancredo Neves"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Quando acabou a Segunda Guerra Mundial?",
-                        opcoes: ["1944", "1945", "1946", "1947"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Qual foi a primeira capital do Brasil?",
-                        opcoes: ["Rio de Janeiro", "São Paulo", "Salvador", "Brasília"],
-                        correta: 2
-                    },
-                    {
-                        pergunta: "Em que século ocorreu a Revolução Francesa?",
-                        opcoes: ["XVII", "XVIII", "XIX", "XX"],
-                        correta: 1
-                    }
-                ];
-                this.ativo = false;
-            }
-
-            iniciar() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.ativo = true;
-                
-                this.perguntas = this.perguntas.sort(() => Math.random() - 0.5);
-                
-                document.getElementById('history-start-btn').style.display = 'none';
-                document.getElementById('history-options').style.display = 'grid';
-                
-                this.mostrarPergunta();
-                this.atualizarDisplay();
-            }
-
-            mostrarPergunta() {
-                if (this.perguntaAtual >= this.perguntas.length) {
-                    this.finalizarJogo();
-                    return;
-                }
-
-                const pergunta = this.perguntas[this.perguntaAtual];
-                document.getElementById('history-question').textContent = pergunta.pergunta;
-                
-                const optionsContainer = document.getElementById('history-options');
-                optionsContainer.innerHTML = '';
-                
-                pergunta.opcoes.forEach((opcao, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'option-btn';
-                    button.textContent = opcao;
-                    button.onclick = () => this.verificarResposta(index);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            verificarResposta(opcaoSelecionada) {
-                if (!this.ativo) return;
-                
-                const pergunta = this.perguntas[this.perguntaAtual];
-                const buttons = document.querySelectorAll('#history-options .option-btn');
-                
-                buttons.forEach((btn, index) => {
-                    if (index === pergunta.correta) {
-                        btn.classList.add('correct');
-                    } else if (index === opcaoSelecionada && index !== pergunta.correta) {
-                        btn.classList.add('incorrect');
-                    }
-                    btn.disabled = true;
-                });
-                
-                if (opcaoSelecionada === pergunta.correta) {
-                    this.acertos++;
-                    this.pontos += 20;
-                    criarNotificacao('✅ Correto!', 'success');
-                } else {
-                    criarNotificacao('❌ Incorreto!', 'error');
-                }
-                
-                setTimeout(() => {
-                    this.perguntaAtual++;
-                    this.mostrarPergunta();
-                    this.atualizarDisplay();
-                }, 2000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                const precisao = Math.round((this.acertos / this.perguntas.length) * 100);
-                
-                document.getElementById('history-start-btn').style.display = 'block';
-                document.getElementById('history-options').style.display = 'none';
-                
-                document.getElementById('history-question').innerHTML = `
-                    <div style="text-align: center;">
-                        <h3>🎉 Quiz Finalizado!</h3>
-                        <p>Pontos: ${this.pontos}</p>
-                        <p>Acertos: ${this.acertos}/${this.perguntas.length}</p>
-                        <p>Precisão: ${precisao}%</p>
-                    </div>
-                `;
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'História');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-history-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-history-best`, this.pontos.toString());
-                    document.getElementById('history-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('history-points').textContent = this.pontos;
-                document.getElementById('history-current').textContent = this.perguntaAtual + 1;
-                document.getElementById('history-correct').textContent = this.acertos;
-                const precisao = this.perguntaAtual > 0 ? Math.round((this.acertos / this.perguntaAtual) * 100) : 0;
-                document.getElementById('history-accuracy').textContent = precisao;
-            }
-        }
-
-        // Quiz de Ciências
-        class QuizCiencias {
-            constructor() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.perguntas = [
-                    {
-                        pergunta: "Qual é o planeta mais próximo do Sol?",
-                        opcoes: ["Vênus", "Mercúrio", "Terra", "Marte"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Quantos ossos tem o corpo humano adulto?",
-                        opcoes: ["206", "208", "210", "204"],
-                        correta: 0
-                    },
-                    {
-                        pergunta: "Qual é a fórmula química da água?",
-                        opcoes: ["CO2", "H2O", "O2", "NaCl"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "Qual animal é conhecido como o rei da selva?",
-                        opcoes: ["Tigre", "Leopardo", "Leão", "Jaguar"],
-                        correta: 2
-                    },
-                    {
-                        pergunta: "Quantos corações tem uma minhoca?",
-                        opcoes: ["1", "3", "5", "10"],
-                        correta: 2
-                    }
-                ];
-                this.ativo = false;
-            }
-
-            iniciar() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.ativo = true;
-                
-                this.perguntas = this.perguntas.sort(() => Math.random() - 0.5);
-                
-                document.getElementById('science-start-btn').style.display = 'none';
-                document.getElementById('science-options').style.display = 'grid';
-                
-                this.mostrarPergunta();
-                this.atualizarDisplay();
-            }
-
-            mostrarPergunta() {
-                if (this.perguntaAtual >= this.perguntas.length) {
-                    this.finalizarJogo();
-                    return;
-                }
-
-                const pergunta = this.perguntas[this.perguntaAtual];
-                document.getElementById('science-question').textContent = pergunta.pergunta;
-                
-                const optionsContainer = document.getElementById('science-options');
-                optionsContainer.innerHTML = '';
-                
-                pergunta.opcoes.forEach((opcao, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'option-btn';
-                    button.textContent = opcao;
-                    button.onclick = () => this.verificarResposta(index);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            verificarResposta(opcaoSelecionada) {
-                if (!this.ativo) return;
-                
-                const pergunta = this.perguntas[this.perguntaAtual];
-                const buttons = document.querySelectorAll('#science-options .option-btn');
-                
-                buttons.forEach((btn, index) => {
-                    if (index === pergunta.correta) {
-                        btn.classList.add('correct');
-                    } else if (index === opcaoSelecionada && index !== pergunta.correta) {
-                        btn.classList.add('incorrect');
-                    }
-                    btn.disabled = true;
-                });
-                
-                if (opcaoSelecionada === pergunta.correta) {
-                    this.acertos++;
-                    this.pontos += 25;
-                    criarNotificacao('✅ Correto!', 'success');
-                } else {
-                    criarNotificacao('❌ Incorreto!', 'error');
-                }
-                
-                setTimeout(() => {
-                    this.perguntaAtual++;
-                    this.mostrarPergunta();
-                    this.atualizarDisplay();
-                }, 2000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                const precisao = Math.round((this.acertos / this.perguntas.length) * 100);
-                
-                document.getElementById('science-start-btn').style.display = 'block';
-                document.getElementById('science-options').style.display = 'none';
-                
-                document.getElementById('science-question').innerHTML = `
-                    <div style="text-align: center;">
-                        <h3>🎉 Quiz Finalizado!</h3>
-                        <p>Pontos: ${this.pontos}</p>
-                        <p>Acertos: ${this.acertos}/${this.perguntas.length}</p>
-                        <p>Precisão: ${precisao}%</p>
-                    </div>
-                `;
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Ciências');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-science-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-science-best`, this.pontos.toString());
-                    document.getElementById('science-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('science-points').textContent = this.pontos;
-                document.getElementById('science-current').textContent = this.perguntaAtual + 1;
-                document.getElementById('science-correct').textContent = this.acertos;
-                const precisao = this.perguntaAtual > 0 ? Math.round((this.acertos / this.perguntaAtual) * 100) : 0;
-                document.getElementById('science-accuracy').textContent = precisao;
-            }
-        }
-
-        // Jogo da Memória
-        class JogoMemoria {
-            constructor() {
-                this.pontos = 0;
-                this.pares = 0;
-                this.tentativas = 0;
-                this.tempo = 0;
-                this.timer = null;
-                this.cartasViradas = [];
-                this.cartas = ['🎮', '🎯', '🎲', '🎪', '🎨', '🎭', '🎪', '🎵'];
-                this.tabuleiro = [];
-                this.ativo = false;
-            }
-
-            iniciar() {
-                this.pontos = 0;
-                this.pares = 0;
-                this.tentativas = 0;
-                this.tempo = 0;
-                this.cartasViradas = [];
-                this.ativo = true;
-                
-                // Duplicar cartas e embaralhar
-                this.tabuleiro = [...this.cartas, ...this.cartas].sort(() => Math.random() - 0.5);
-                
-                this.criarTabuleiro();
-                this.iniciarTimer();
-                this.atualizarDisplay();
-                
-                document.getElementById('memory-start-btn').style.display = 'none';
-            }
-
-            criarTabuleiro() {
-                const board = document.getElementById('memory-board');
-                board.innerHTML = '';
-                
-                this.tabuleiro.forEach((carta, index) => {
-                    const cardElement = document.createElement('div');
-                    cardElement.className = 'memory-card';
-                    cardElement.textContent = '?';
-                    cardElement.dataset.index = index;
-                    cardElement.dataset.symbol = carta;
-                    cardElement.onclick = () => this.virarCarta(index);
-                    board.appendChild(cardElement);
-                });
-            }
-
-            virarCarta(index) {
-                if (!this.ativo || this.cartasViradas.length >= 2) return;
-                
-                const carta = document.querySelector(`[data-index="${index}"]`);
-                if (carta.classList.contains('flipped') || carta.classList.contains('matched')) return;
-                
-                carta.classList.add('flipped');
-                carta.textContent = carta.dataset.symbol;
-                this.cartasViradas.push(index);
-                
-                if (this.cartasViradas.length === 2) {
-                    this.tentativas++;
-                    setTimeout(() => this.verificarPar(), 1000);
-                }
-            }
-
-            verificarPar() {
-                const [index1, index2] = this.cartasViradas;
-                const carta1 = document.querySelector(`[data-index="${index1}"]`);
-                const carta2 = document.querySelector(`[data-index="${index2}"]`);
-                
-                if (carta1.dataset.symbol === carta2.dataset.symbol) {
-                    carta1.classList.add('matched');
-                    carta2.classList.add('matched');
-                    this.pares++;
-                    this.pontos += 50;
-                    criarNotificacao('✅ Par encontrado!', 'success');
-                    
-                    if (this.pares === 8) {
-                        this.finalizarJogo();
-                    }
-                } else {
-                    carta1.classList.remove('flipped');
-                    carta2.classList.remove('flipped');
-                    carta1.textContent = '?';
-                    carta2.textContent = '?';
-                }
-                
-                this.cartasViradas = [];
-                this.atualizarDisplay();
-            }
-
-            iniciarTimer() {
-                this.timer = setInterval(() => {
-                    this.tempo++;
-                    document.getElementById('memory-timer').textContent = this.tempo;
-                }, 1000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                clearInterval(this.timer);
-                
-                const bonus = Math.max(0, 300 - this.tempo);
-                this.pontos += bonus;
-                
-                document.getElementById('memory-start-btn').style.display = 'block';
-                
-                criarNotificacao(`🎉 Parabéns! +${bonus} pontos de bônus!`, 'success');
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Memória');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-memory-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-memory-best`, this.pontos.toString());
-                    document.getElementById('memory-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('memory-points').textContent = this.pontos;
-                document.getElementById('memory-pairs').textContent = this.pares;
-                document.getElementById('memory-attempts').textContent = this.tentativas;
-            }
-        }
-
-        // Quiz de Inglês
-        class QuizIngles {
-            constructor() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.perguntas = [
-                    {
-                        pergunta: "What color is the sky?",
-                        opcoes: ["Red", "Blue", "Green", "Yellow"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "How do you say 'Obrigado' in English?",
-                        opcoes: ["Please", "Sorry", "Thank you", "Excuse me"],
-                        correta: 2
-                    },
-                    {
-                        pergunta: "What is the opposite of 'big'?",
-                        opcoes: ["Small", "Large", "Huge", "Giant"],
-                        correta: 0
-                    },
-                    {
-                        pergunta: "Complete: 'I ___ a student.'",
-                        opcoes: ["is", "am", "are", "be"],
-                        correta: 1
-                    },
-                    {
-                        pergunta: "What does 'cat' mean in Portuguese?",
-                        opcoes: ["Cão", "Gato", "Pássaro", "Peixe"],
-                        correta: 1
-                    }
-                ];
-                this.ativo = false;
-            }
-
-            iniciar() {
-                this.pontos = 0;
-                this.acertos = 0;
-                this.perguntaAtual = 0;
-                this.ativo = true;
-                
-                this.perguntas = this.perguntas.sort(() => Math.random() - 0.5);
-                
-                document.getElementById('english-start-btn').style.display = 'none';
-                document.getElementById('english-options').style.display = 'grid';
-                
-                this.mostrarPergunta();
-                this.atualizarDisplay();
-            }
-
-            mostrarPergunta() {
-                if (this.perguntaAtual >= this.perguntas.length) {
-                    this.finalizarJogo();
-                    return;
-                }
-
-                const pergunta = this.perguntas[this.perguntaAtual];
-                document.getElementById('english-question').textContent = pergunta.pergunta;
-                
-                const optionsContainer = document.getElementById('english-options');
-                optionsContainer.innerHTML = '';
-                
-                pergunta.opcoes.forEach((opcao, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'option-btn';
-                    button.textContent = opcao;
-                    button.onclick = () => this.verificarResposta(index);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            verificarResposta(opcaoSelecionada) {
-                if (!this.ativo) return;
-                
-                const pergunta = this.perguntas[this.perguntaAtual];
-                const buttons = document.querySelectorAll('#english-options .option-btn');
-                
-                buttons.forEach((btn, index) => {
-                    if (index === pergunta.correta) {
-                        btn.classList.add('correct');
-                    } else if (index === opcaoSelecionada && index !== pergunta.correta) {
-                        btn.classList.add('incorrect');
-                    }
-                    btn.disabled = true;
-                });
-                
-                if (opcaoSelecionada === pergunta.correta) {
-                    this.acertos++;
-                    this.pontos += 30;
-                    criarNotificacao('✅ Correct!', 'success');
-                } else {
-                    criarNotificacao('❌ Wrong!', 'error');
-                }
-                
-                setTimeout(() => {
-                    this.perguntaAtual++;
-                    this.mostrarPergunta();
-                    this.atualizarDisplay();
-                }, 2000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                const precisao = Math.round((this.acertos / this.perguntas.length) * 100);
-                
-                document.getElementById('english-start-btn').style.display = 'block';
-                document.getElementById('english-options').style.display = 'none';
-                
-                document.getElementById('english-question').innerHTML = `
-                    <div style="text-align: center;">
-                        <h3>🎉 Quiz Finished!</h3>
-                        <p>Points: ${this.pontos}</p>
-                        <p>Correct: ${this.acertos}/${this.perguntas.length}</p>
-                        <p>Accuracy: ${precisao}%</p>
-                    </div>
-                `;
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Inglês');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-english-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-english-best`, this.pontos.toString());
-                    document.getElementById('english-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('english-points').textContent = this.pontos;
-                document.getElementById('english-current').textContent = this.perguntaAtual + 1;
-                document.getElementById('english-correct').textContent = this.acertos;
-                const precisao = this.perguntaAtual > 0 ? Math.round((this.acertos / this.perguntaAtual) * 100) : 0;
-                document.getElementById('english-accuracy').textContent = precisao;
-            }
-        }
-
-        // Caça Palavras
-        class CacaPalavras {
-            constructor() {
-                this.pontos = 0;
-                this.palavrasEncontradas = 0;
-                this.tempo = 120;
-                this.dicas = 3;
-                this.timer = null;
-                this.palavras = ['CASA', 'GATO', 'AMOR', 'VIDA', 'FELIZ'];
-                this.grid = [];
-                this.palavrasColocadas = [];
-                this.ativo = false;
-            }
-
-            iniciar() {
-                this.pontos = 0;
-                this.palavrasEncontradas = 0;
-                this.tempo = 120;
-                this.dicas = 3;
-                this.ativo = true;
-                
-                this.criarGrid();
-                this.colocarPalavras();
-                this.preencherGrid();
-                this.mostrarGrid();
-                this.mostrarPalavras();
-                this.iniciarTimer();
-                this.atualizarDisplay();
-                
-                document.getElementById('wordsearch-start-btn').style.display = 'none';
-            }
-
-            criarGrid() {
-                this.grid = Array(10).fill().map(() => Array(10).fill(''));
-            }
-
-            colocarPalavras() {
-                this.palavrasColocadas = [];
-                
-                this.palavras.forEach(palavra => {
-                    let colocada = false;
-                    let tentativas = 0;
-                    
-                    while (!colocada && tentativas < 50) {
-                        const direcao = Math.floor(Math.random() * 3); // 0: horizontal, 1: vertical, 2: diagonal
-                        const linha = Math.floor(Math.random() * 10);
-                        const coluna = Math.floor(Math.random() * 10);
-                        
-                        if (this.podeColocarPalavra(palavra, linha, coluna, direcao)) {
-                            this.colocarPalavra(palavra, linha, coluna, direcao);
-                            colocada = true;
-                        }
-                        tentativas++;
-                    }
-                });
-            }
-
-            podeColocarPalavra(palavra, linha, coluna, direcao) {
-                const deltas = [[0, 1], [1, 0], [1, 1]];
-                const [deltaL, deltaC] = deltas[direcao];
-                
-                for (let i = 0; i < palavra.length; i++) {
-                    const novaLinha = linha + i * deltaL;
-                    const novaColuna = coluna + i * deltaC;
-                    
-                    if (novaLinha >= 10 || novaColuna >= 10) return false;
-                    if (this.grid[novaLinha][novaColuna] !== '' && this.grid[novaLinha][novaColuna] !== palavra[i]) return false;
-                }
-                return true;
-            }
-
-            colocarPalavra(palavra, linha, coluna, direcao) {
-                const deltas = [[0, 1], [1, 0], [1, 1]];
-                const [deltaL, deltaC] = deltas[direcao];
-                const posicoes = [];
-                
-                for (let i = 0; i < palavra.length; i++) {
-                    const novaLinha = linha + i * deltaL;
-                    const novaColuna = coluna + i * deltaC;
-                    this.grid[novaLinha][novaColuna] = palavra[i];
-                    posicoes.push([novaLinha, novaColuna]);
-                }
-                
-                this.palavrasColocadas.push({
-                    palavra: palavra,
-                    posicoes: posicoes,
-                    encontrada: false
-                });
-            }
-
-            preencherGrid() {
-                const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                for (let i = 0; i < 10; i++) {
-                    for (let j = 0; j < 10; j++) {
-                        if (this.grid[i][j] === '') {
-                            this.grid[i][j] = letras[Math.floor(Math.random() * letras.length)];
-                        }
-                    }
-                }
-            }
-
-            mostrarGrid() {
-                const gridContainer = document.getElementById('wordsearch-grid');
-                gridContainer.innerHTML = '';
-                
-                for (let i = 0; i < 10; i++) {
-                    for (let j = 0; j < 10; j++) {
-                        const cell = document.createElement('div');
-                        cell.className = 'wordsearch-cell';
-                        cell.textContent = this.grid[i][j];
-                        cell.dataset.row = i;
-                        cell.dataset.col = j;
-                        cell.onclick = () => this.selecionarCelula(i, j);
-                        gridContainer.appendChild(cell);
-                    }
-                }
-            }
-
-            mostrarPalavras() {
-                const wordsContainer = document.getElementById('wordsearch-words');
-                wordsContainer.innerHTML = '';
-                
-                this.palavras.forEach(palavra => {
-                    const wordElement = document.createElement('div');
-                    wordElement.className = 'word-item';
-                    wordElement.textContent = palavra;
-                    wordElement.id = `word-${palavra}`;
-                    wordsContainer.appendChild(wordElement);
-                });
-            }
-
-            selecionarCelula(linha, coluna) {
-                if (!this.ativo) return;
-                
-                // Verificar se a célula faz parte de alguma palavra
-                this.palavrasColocadas.forEach(palavraObj => {
-                    if (!palavraObj.encontrada) {
-                        const posicaoEncontrada = palavraObj.posicoes.find(pos => pos[0] === linha && pos[1] === coluna);
-                        if (posicaoEncontrada) {
-                            this.marcarPalavraEncontrada(palavraObj);
-                        }
-                    }
-                });
-            }
-
-            marcarPalavraEncontrada(palavraObj) {
-                palavraObj.encontrada = true;
-                this.palavrasEncontradas++;
-                this.pontos += 40;
-                
-                // Marcar células como encontradas
-                palavraObj.posicoes.forEach(pos => {
-                    const cell = document.querySelector(`[data-row="${pos[0]}"][data-col="${pos[1]}"]`);
-                    cell.classList.add('found');
-                });
-                
-                // Marcar palavra na lista
-                document.getElementById(`word-${palavraObj.palavra}`).classList.add('found');
-                
-                criarNotificacao(`✅ Palavra "${palavraObj.palavra}" encontrada!`, 'success');
-                
-                if (this.palavrasEncontradas === this.palavras.length) {
-                    this.finalizarJogo();
-                }
-                
-                this.atualizarDisplay();
-            }
-
-            usarDica() {
-                if (this.dicas <= 0 || !this.ativo) return;
-                
-                const palavraNaoEncontrada = this.palavrasColocadas.find(p => !p.encontrada);
-                if (palavraNaoEncontrada) {
-                    const primeiraPos = palavraNaoEncontrada.posicoes[0];
-                    const cell = document.querySelector(`[data-row="${primeiraPos[0]}"][data-col="${primeiraPos[1]}"]`);
-                    cell.style.background = 'linear-gradient(135deg, #ffd700, #ffed4e)';
-                    cell.style.color = '#333';
-                    
-                    this.dicas--;
-                    this.atualizarDisplay();
-                    
-                    setTimeout(() => {
-                        cell.style.background = '';
-                        cell.style.color = '';
-                    }, 3000);
-                }
-            }
-
-            iniciarTimer() {
-                this.timer = setInterval(() => {
-                    this.tempo--;
-                    document.getElementById('wordsearch-timer').textContent = this.tempo;
-                    
-                    if (this.tempo <= 0) {
-                        this.finalizarJogo();
-                    }
-                }, 1000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                clearInterval(this.timer);
-                
-                const bonus = this.tempo * 2;
-                this.pontos += bonus;
-                
-                document.getElementById('wordsearch-start-btn').style.display = 'block';
-                
-                criarNotificacao(`🎉 Jogo finalizado! +${bonus} pontos de bônus!`, 'success');
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Caça Palavras');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-wordsearch-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-wordsearch-best`, this.pontos.toString());
-                    document.getElementById('wordsearch-best').textContent = this.pontos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('wordsearch-points').textContent = this.pontos;
-                document.getElementById('wordsearch-found').textContent = this.palavrasEncontradas;
-                document.getElementById('wordsearch-hints').textContent = this.dicas;
-            }
-        }
-
-        // Quebra-Cabeça Numérico
-        class QuebraCabeca {
-            constructor() {
-                this.pontos = 0;
-                this.movimentos = 0;
-                this.tempo = 0;
-                this.timer = null;
-                this.tabuleiro = [1, 2, 3, 4, 5, 6, 7, 8, 0]; // 0 representa espaço vazio
-                this.solucao = [1, 2, 3, 4, 5, 6, 7, 8, 0];
-                this.ativo = false;
-            }
-
-            iniciar() {
-                this.pontos = 0;
-                this.movimentos = 0;
-                this.tempo = 0;
-                this.ativo = true;
-                
-                this.embaralhar();
-                this.criarTabuleiro();
-                this.iniciarTimer();
-                this.atualizarDisplay();
-                
-                document.getElementById('puzzle-start-btn').textContent = '🔄 Reiniciar';
-                document.getElementById('puzzle-shuffle-btn').style.display = 'block';
-            }
-
-            embaralhar() {
-                // Embaralhar de forma que sempre seja solucionável
-                for (let i = 0; i < 1000; i++) {
-                    const movimentosPossiveis = this.obterMovimentosPossiveis();
-                    if (movimentosPossiveis.length > 0) {
-                        const movimento = movimentosPossiveis[Math.floor(Math.random() * movimentosPossiveis.length)];
-                        this.moverPeca(movimento, false);
-                    }
-                }
-                this.movimentos = 0;
-            }
-
-            obterMovimentosPossiveis() {
-                const posicaoVazia = this.tabuleiro.indexOf(0);
-                const linha = Math.floor(posicaoVazia / 3);
-                const coluna = posicaoVazia % 3;
-                const movimentos = [];
-                
-                if (linha > 0) movimentos.push(posicaoVazia - 3); // cima
-                if (linha < 2) movimentos.push(posicaoVazia + 3); // baixo
-                if (coluna > 0) movimentos.push(posicaoVazia - 1); // esquerda
-                if (coluna < 2) movimentos.push(posicaoVazia + 1); // direita
-                
-                return movimentos;
-            }
-
-            criarTabuleiro() {
-                const board = document.getElementById('puzzle-board');
-                board.innerHTML = '';
-                
-                this.tabuleiro.forEach((numero, index) => {
-                    const piece = document.createElement('div');
-                    piece.className = numero === 0 ? 'puzzle-piece empty' : 'puzzle-piece';
-                    piece.textContent = numero === 0 ? '' : numero;
-                    piece.onclick = () => this.moverPeca(index);
-                    board.appendChild(piece);
-                });
-            }
-
-            moverPeca(posicao, contarMovimento = true) {
-                if (!this.ativo && contarMovimento) return;
-                
-                const posicaoVazia = this.tabuleiro.indexOf(0);
-                const movimentosPossiveis = this.obterMovimentosPossiveis();
-                
-                if (movimentosPossiveis.includes(posicao)) {
-                    // Trocar peça com espaço vazio
-                    [this.tabuleiro[posicao], this.tabuleiro[posicaoVazia]] = [this.tabuleiro[posicaoVazia], this.tabuleiro[posicao]];
-                    
-                    if (contarMovimento) {
-                        this.movimentos++;
-                        this.atualizarDisplay();
-                    }
-                    
-                    this.criarTabuleiro();
-                    
-                    if (this.verificarVitoria()) {
-                        this.finalizarJogo();
-                    }
-                }
-            }
-
-            verificarVitoria() {
-                return JSON.stringify(this.tabuleiro) === JSON.stringify(this.solucao);
-            }
-
-            iniciarTimer() {
-                this.timer = setInterval(() => {
-                    this.tempo++;
-                    document.getElementById('puzzle-timer').textContent = this.tempo;
-                }, 1000);
-            }
-
-            finalizarJogo() {
-                this.ativo = false;
-                clearInterval(this.timer);
-                
-                // Calcular pontos baseado em movimentos e tempo
-                const pontosBase = 1000;
-                const penalidade = (this.movimentos * 5) + (this.tempo * 2);
-                this.pontos = Math.max(100, pontosBase - penalidade);
-                
-                criarNotificacao(`🎉 Parabéns! Resolvido em ${this.movimentos} movimentos!`, 'success');
-                
-                if (sistemaPontuacao) {
-                    sistemaPontuacao.adicionarPontos(this.pontos, 'Quebra-Cabeça');
-                }
-                
-                const melhorAnterior = parseInt(localStorage.getItem(`${usuarioLogado}-puzzle-best`) || '0');
-                if (this.pontos > melhorAnterior) {
-                    localStorage.setItem(`${usuarioLogado}-puzzle-best`, this.pontos.toString());
-                    document.getElementById('puzzle-best').textContent = this.pontos;
-                }
-                
-                // Atualizar melhor número de movimentos
-                const melhorMovimentos = localStorage.getItem(`${usuarioLogado}-puzzle-best-moves`) || '∞';
-                if (melhorMovimentos === '∞' || this.movimentos < parseInt(melhorMovimentos)) {
-                    localStorage.setItem(`${usuarioLogado}-puzzle-best-moves`, this.movimentos.toString());
-                    document.getElementById('puzzle-best-moves').textContent = this.movimentos;
-                }
-            }
-
-            atualizarDisplay() {
-                document.getElementById('puzzle-points').textContent = this.pontos;
-                document.getElementById('puzzle-moves').textContent = this.movimentos;
-                
-                // Carregar melhor número de movimentos
-                const melhorMovimentos = localStorage.getItem(`${usuarioLogado}-puzzle-best-moves`) || '∞';
-                document.getElementById('puzzle-best-moves').textContent = melhorMovimentos;
+        function verificarRespostaMatematica() {
+            if (jogoAtual) {
+                jogoAtual.verificarResposta();
             }
         }
 
@@ -3346,139 +2356,61 @@
             document.getElementById('shop-modal').style.display = 'none';
         }
 
-        // Funções principais
-        function abrirJogo(tipo) {
-            if (!usuarioLogado) {
-                criarNotificacao('❌ Faça login para jogar!', 'error');
-                mostrarLogin();
-                return;
-            }
-
-            document.getElementById(`${tipo}-modal`).style.display = 'flex';
-            
-            switch(tipo) {
-                case 'math':
-                    jogoAtual = new DesafioMatematico();
-                    break;
-                case 'portuguese':
-                    jogoAtual = new QuizPortugues();
-                    break;
-                case 'geography':
-                    jogoAtual = new QuizGeografia();
-                    break;
-                case 'history':
-                    jogoAtual = new QuizHistoria();
-                    break;
-                case 'science':
-                    jogoAtual = new QuizCiencias();
-                    break;
-                case 'memory':
-                    jogoAtual = new JogoMemoria();
-                    break;
-                case 'english':
-                    jogoAtual = new QuizIngles();
-                    break;
-                case 'wordsearch':
-                    jogoAtual = new CacaPalavras();
-                    break;
-                case 'puzzle':
-                    jogoAtual = new QuebraCabeca();
-                    break;
-            }
-        }
-
-        function fecharModal() {
-            const modals = document.querySelectorAll('.game-modal');
-            modals.forEach(modal => {
-                if (modal.id !== 'shop-modal') {
-                    modal.style.display = 'none';
-                }
-            });
-            jogoAtual = null;
-        }
-
-        function iniciarJogoMatematico() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function verificarRespostaMatematica() {
-            if (jogoAtual) jogoAtual.verificarResposta();
-        }
-
-        function iniciarQuizPortugues() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarQuizGeografia() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarQuizHistoria() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarQuizCiencias() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarJogoMemoria() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarQuizIngles() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarCacaPalavras() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function iniciarQuebraCabeca() {
-            if (jogoAtual) jogoAtual.iniciar();
-        }
-
-        function embaralharPuzzle() {
-            if (jogoAtual) jogoAtual.embaralhar();
-        }
-
-        function usarDica() {
-            if (jogoAtual) jogoAtual.usarDica();
-        }
-
-        // Função para criar notificações
+        // Sistema de Notificações
         function criarNotificacao(mensagem, tipo) {
-            const notificacao = document.createElement('div');
-            notificacao.className = `notification ${tipo}`;
-            notificacao.textContent = mensagem;
-            document.body.appendChild(notificacao);
-
+            const notification = document.createElement('div');
+            notification.className = `notification ${tipo}`;
+            notification.textContent = mensagem;
+            
+            document.body.appendChild(notification);
+            
             setTimeout(() => {
-                notificacao.remove();
-            }, 3000);
+                notification.remove();
+            }, 4000);
         }
 
         // Event listeners
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                if (document.getElementById('math-modal').style.display === 'flex' && jogoAtual && jogoAtual.ativo) {
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const mathAnswer = document.getElementById('math-answer');
+                if (mathAnswer && mathAnswer.style.display !== 'none' && document.activeElement === mathAnswer) {
                     verificarRespostaMatematica();
                 }
             }
         });
 
-        // Fechar modais clicando fora
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('game-modal')) {
-                if (e.target.id === 'shop-modal') {
-                    fecharLoja();
-                } else {
-                    fecharModal();
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar se há usuário logado salvo
+            const usuarioSalvo = localStorage.getItem('usuarioLogado');
+            if (usuarioSalvo) {
+                const usuarios = JSON.parse(localStorage.getItem('usuarios') || '{}');
+                if (usuarios[usuarioSalvo]) {
+                    usuarioLogado = usuarioSalvo;
+                    document.getElementById('user-name').textContent = usuarioSalvo;
+                    document.getElementById('login-section').style.display = 'none';
+                    document.getElementById('user-section').style.display = 'block';
+                    
+                    // Mostrar badges
+                    mostrarBadgesUsuario(usuarios[usuarioSalvo]);
+                    
+                    // Mostrar botão admin se necessário
+                    if (usuarios[usuarioSalvo].isAdmin) {
+                        document.getElementById('admin-panel-btn').style.display = 'block';
+                    }
+                    
+                    // Inicializar sistemas
+                    sistemaPontuacao = new SistemaPontuacao();
+                    sistemaMonetario = new SistemaMonetario();
+                    sistemaPlanos = new SistemaPlanos();
+                    
+                    // Mostrar elementos
+                    document.getElementById('currency-display').style.display = 'block';
+                    document.getElementById('shop-btn').style.display = 'block';
+                    document.getElementById('plans-btn').style.display = 'block';
                 }
-            }
-            if (e.target.classList.contains('login-modal')) {
-                fecharLogin();
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987d7b56f08af1dd',t:'MTc1OTMzNzY2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98e917f5d31d190e',t:'MTc2MDQ2NjA1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
